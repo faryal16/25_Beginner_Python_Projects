@@ -3,6 +3,10 @@
 Welcome to a curated list of **25 beginner-friendly Python projects** that help you practice key concepts like logic, data structures, file handling, APIs, game development, and more! Whether you're just getting started or looking to solidify your understanding, these projects are a perfect way to build real-world skills. 💡
 
 ---
+## 🎮 Try a sample project:  
+👉 [Play the Python Mini Game Arcade on Streamlit](https://25beginner-python-projects.streamlit.app/)
+
+---
 
 ## 🎮 Fun & Games
 

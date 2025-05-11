@@ -1,4 +1,6 @@
 import streamlit as st
+import copy
+
 
 PLAYER = 'X'
 AI = 'O'
@@ -26,37 +28,34 @@ def run():
         def minimax(self, board, is_maximizing):
             if self.check_winner(board, AI):
                 return 1, None
-            
+
             if self.check_winner(board, PLAYER):
                 return -1, None
-            
+
             if self.is_draw(board):
                 return 0, None
-            
-            
+
             best_score = float('-inf') if is_maximizing else float('inf')
             best_move = None
-            
-            
+
             for i in range(3):
                 for j in range(3):
                     if board[i][j] == EMPTY:
-                        board[i][j] = AI if is_maximizing else PLAYER
-                        score, _ = self.minimax(board, not is_maximizing)
-                        board[i][j] = EMPTY
-                        
+                        new_board = copy.deepcopy(board)
+                        new_board[i][j] = AI if is_maximizing else PLAYER
+                        score, _ = self.minimax(new_board, not is_maximizing)
+
                         if is_maximizing:
                             if score > best_score:
                                 best_score = score
-                                best_move = (i,j)
-                                
+                                best_move = (i, j)
                         else:
                             if score < best_score:
                                 best_score = score
                                 best_move = (i, j)
-                                
+
             return best_score, best_move
-        
+
         
         
         def check_winner(self, board, player):
